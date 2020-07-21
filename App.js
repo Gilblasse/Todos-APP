@@ -1,24 +1,27 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import Header from "./components/Header";
 
-export default function Header() {
+export default function App() {
+  const [todos, setTodos] = useState([
+    { text: "buy coffee", key: "1" },
+    { text: "create an app", key: "2" },
+    { text: "play on the switch", key: "3" },
+  ]);
+
   return (
-    <View style={styles.header}>
-      <Text style={styles.title}>My Todos</Text>
+    <View style={styles.container}>
+      <Header />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  header: {
-    height: 80,
-    paddingTop: 38,
-    backgroundColor: "coral",
-  },
-  title: {
-    textAlign: "center",
-    color: "#fff",
-    fontSize: 20,
-    fontWeight: "bold",
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    // alignItems: "center",
+    // justifyContent: "center",
   },
 });
